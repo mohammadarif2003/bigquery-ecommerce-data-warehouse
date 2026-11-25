@@ -4,22 +4,29 @@ Mini project: memodelkan data e-commerce sintetis (thelook_ecommerce)
 menjadi star schema di BigQuery, lalu menyajikannya di Looker Studio.
 
 **Dashboard:** [https://datastudio.google.com/reporting/935f4596-8846-40a4-9e67-d164f3cf2dd5]
-
-![Dashboard](dashboard.png)
-![Quality check](quality-check-after.png)
 **Tools:** BigQuery (SQL), Looker Studio
+![Dashboard](dashboard.png)
 
 ## Model data
 - fact_sales: 181.450 baris (order item), ukuran: sale_price, cost, gross_profit
 - dim_customer, dim_product, dim_date
 - 5 view analitik untuk dashboard (revenue bulanan, kategori, negara, repeat rate, top produk)
 
-## Validasi data
-- Jumlah baris fact_sales = sumber (181.450)
-- Tidak ada baris yatim (orphan = 0)
-- Temuan: partisi per tanggal di BigQuery Sandbox menghapus data lebih dari 60 hari
-  (22.880 dari 181.450 baris tersisa). Diperbaiki dengan clustering, tanpa partisi.
-  Di akun berbayar, partisi per tanggal akan dipakai.
+  ## Validasi data
+- Jumlah baris fact_sales sama dengan sumber (181.450) dan tidak ada baris yatim (orphan = 0).
+- Temuan: partisi per tanggal di BigQuery Sandbox menghapus data yang lebih lama
+  dari 60 hari, sehingga fact_sales hanya berisi 22.880 dari 181.450 baris.
+  Diperbaiki dengan clustering tanpa partisi. Di akun berbayar, partisi per tanggal
+  akan dipakai.
+
+**Sebelum perbaikan**
+![Before](quality-check-before.png)
+
+**Sesudah perbaikan**
+![After](quality-check-after.png)
+
+**Cek baris yatim**
+![Orphan](orphan-check.png)
 
 ## Insight
 - Repeat customer rate 30,8%
