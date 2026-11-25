@@ -24,7 +24,7 @@ menjadi star schema di BigQuery, lalu menyajikannya di Looker Studio.
 **Sesudah perbaikan**
 ![After](quality-check-after.png)
 
-**Cek baris yatim**
+**Orphan-check**
 ![Orphan](orphan-check.png)
 
 ## Insight
