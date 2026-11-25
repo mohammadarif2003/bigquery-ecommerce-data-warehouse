@@ -4,9 +4,8 @@ Mini project: memodelkan data e-commerce sintetis (thelook_ecommerce)
 menjadi star schema di BigQuery, lalu menyajikannya di Looker Studio.
 
 **Dashboard:** [https://datastudio.google.com/reporting/935f4596-8846-40a4-9e67-d164f3cf2dd5]
-**Tools:** BigQuery (SQL), Looker Studio
 ![Dashboard](dashboard.png)
-
+**Tools:** BigQuery (SQL), Looker Studio
 ## Model data
 - fact_sales: 181.450 baris (order item), ukuran: sale_price, cost, gross_profit
 - dim_customer, dim_product, dim_date
